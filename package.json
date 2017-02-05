@@ -18,8 +18,10 @@
     "electron-default-menu": "^1.0.0",
     "merry": "^4.2.0",
     "nanocomponent": "^1.1.0",
+    "nanomorph": "^2.1.3",
     "sheetify": "^6.0.1",
-    "tachyons": "^4.6.2"
+    "tachyons": "^4.6.2",
+    "vhs": "^0.2.0"
   },
   "devDependencies": {
     "dependency-check": "^2.8.0",
