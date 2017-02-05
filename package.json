@@ -1,0 +1,31 @@
+{
+  "name": "deskmux",
+  "description": "Desktop application multiplexer",
+  "repository": "yoshuawuyts/deskmux",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "start": "NODE_ENV=development electron . | merry",
+    "test": "standard && npm run deps && nyc node test.js",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov"
+  },
+  "dependencies": {
+    "bankai": "^5.3.0",
+    "choo": "^4.1.0",
+    "choo-log": "^3.0.0",
+    "electron": "^1.4.15",
+    "electron-default-menu": "^1.0.0",
+    "merry": "^4.2.0",
+    "nanocomponent": "^1.1.0",
+    "sheetify": "^6.0.1",
+    "tachyons": "^4.6.2"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.8.0",
+    "electron-builder": "^12.3.1",
+    "nyc": "^10.1.2",
+    "standard": "^8.6.0",
+    "tape": "^4.6.3"
+  }
+}
