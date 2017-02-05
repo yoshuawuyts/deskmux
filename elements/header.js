@@ -1,4 +1,4 @@
-var nanocomponent = require('nanocomponent')
+var component = require('nanocomponent')
 var morph = require('nanomorph')
 var html = require('choo/html')
 var css = require('sheetify')
@@ -12,7 +12,7 @@ var prefix = css`
 module.exports = element
 
 function element (opts) {
-  return nanocomponent({
+  return component({
     render: render,
     onupdate: onupdate
   })
@@ -25,8 +25,8 @@ function element (opts) {
         : 'deskmux | ' + pathname.replace(/^\//, '') // remove leading slash
 
     return html`
-      <header class="${prefix} w-100 bg-dark-gray flex justify-center">
-        <h2 class="gray f5">
+      <header class="${prefix} w-100 flex justify-center">
+        <h2 class="gray f5 code">
           ${title}
         </h2>
       </header>

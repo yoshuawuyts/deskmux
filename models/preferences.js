@@ -17,10 +17,7 @@ function model () {
   }
 
   function dismissWelcome (state, action, send, done) {
-    send('preferences:toggleWelcome', { toggle: false }, function (err) {
-      if (err) return done(err)
-      send('location:set', '/', done)
-    })
+    send('preferences:toggleWelcome', { toggle: false }, done)
   }
 
   function toggleWelcome (state, action) {

@@ -34,6 +34,7 @@ function renderDevelopment () {
 
   server.router([
     [ '/', _merryAssets(assets.html.bind(assets)) ],
+    [ '/welcome', _merryAssets(assets.html.bind(assets)) ],
     [ '/bundle.js', _merryAssets(assets.js.bind(assets)) ],
     [ '/bundle.css', _merryAssets(assets.css.bind(assets)) ]
   ])

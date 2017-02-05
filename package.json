@@ -14,6 +14,7 @@
     "bankai": "^5.3.0",
     "choo": "^4.1.0",
     "choo-log": "^3.0.0",
+    "choo-persist": "^2.0.1",
     "electron": "^1.4.15",
     "electron-default-menu": "^1.0.0",
     "merry": "^4.2.0",

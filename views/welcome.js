@@ -1,4 +1,11 @@
 var html = require('choo/html')
+var css = require('sheetify')
+
+var prefix = css`
+  :host {
+    text-spacing: 5;
+  }
+`
 
 module.exports = view
 
@@ -7,9 +14,22 @@ function view (opts) {
 
   return function (state, prev, send) {
     return html`
-      <body class="bg-dark-gray">
+      <body class="bg-dark-gray code">
         ${header(state.location.pathname)}
+        <main class="flex flex-column justify-center vh-75 pa5">
+          <h1 class="pt5 mt0 ttu f-headline white sans-serif ${prefix}">
+            Welcome to deskmux
+          </h1>
+          <a href="/" onclick=${onclick}
+            class="bn f3 link dim white self-end ttu underline">
+            Continue ❯
+          </a>
+        </main>
       </body>
     `
+
+    function onclick () {
+      send('preferences:dismissWelcome')
+    }
   }
 }

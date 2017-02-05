@@ -1,3 +1,4 @@
+var persist = require('choo-persist')
 var mount = require('choo/mount')
 var log = require('choo-log')
 var css = require('sheetify')
@@ -8,20 +9,23 @@ var Header = require('./elements/header')
 css('vhs/css/vhs.css')
 css('tachyons')
 
-var app = choo()
-app.use(log())
-
-app.model(require('./models/preferences')())
-
 var opts = {
   elements: {
     header: Header()
   }
 }
 
-app.router([
-  [ '/', require('./views/main')(opts) ],
-  [ '/welcome', require('./views/welcome')(opts) ]
-])
+persist(function (persist) {
+  var app = choo()
+  app.use(persist)
+  app.use(log())
 
-mount('body', app.start())
+  app.model(require('./models/preferences')())
+
+  app.router([
+    [ '/', require('./views/main')(opts) ],
+    [ '/welcome', require('./views/welcome')(opts) ]
+  ])
+
+  mount('body', app.start())
+})
