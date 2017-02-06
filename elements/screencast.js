@@ -17,13 +17,13 @@ function element () {
 
   function render () {
     return html`
-      <div class="bg-washed-blue green pa3">
+      <div class="bg-washed-blue green pa3 ba b--washed-green bw3">
         <div class="cf">
           <h1 class="fl ttu f4 code b mt0 w-50">
             Screencast
           </h1>
           <button class="fl w-50 bn pa0 bg-washed-blue green underline pointer">
-            Record new
+            New Recording
           </button>
         </div>
         <div class="h4 w-100 bg-washed-green"></div>

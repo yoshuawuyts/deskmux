@@ -27,7 +27,7 @@ function element (opts) {
 
     return html`
       <header class="${prefix} h2 w-100 flex justify-center dib">
-        <h2 class="gray f5 code">
+        <h2 class="gray f6 code">
           ${title}
         </h2>
       </header>
