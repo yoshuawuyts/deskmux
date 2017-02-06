@@ -5,7 +5,8 @@ var css = require('sheetify')
 
 var prefix = css`
   :host {
-    -webkit-app-region: drag
+    -webkit-app-region: drag;
+    background-color: inherit;
   }
 `
 
@@ -25,7 +26,7 @@ function element (opts) {
         : 'deskmux | ' + pathname.replace(/^\//, '') // remove leading slash
 
     return html`
-      <header class="${prefix} w-100 flex justify-center">
+      <header class="${prefix} h2 w-100 flex justify-center dib">
         <h2 class="gray f5 code">
           ${title}
         </h2>

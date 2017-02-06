@@ -6,6 +6,19 @@ var choo = require('choo')
 
 var Header = require('./elements/header')
 
+css`
+  html {
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
+  }
+  img { -webkit-user-drag: none }
+  main {
+    overflow-y: auto;
+    height: calc(100vh - 2rem); /* height of header */
+  }
+`
+
 css('vhs/css/vhs.css')
 css('tachyons')
 

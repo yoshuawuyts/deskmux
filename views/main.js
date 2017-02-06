@@ -1,4 +1,5 @@
 var html = require('choo/html')
+var screencast = require('../elements/screencast')
 
 module.exports = view
 
@@ -6,11 +7,7 @@ function view (opts) {
   var header = opts.elements.header
 
   var content = [
-    'hello planet',
-    'hello planet',
-    'hello planet',
-    'hello planet',
-    'hello planet'
+    screencast()
   ]
 
   return function (state, prev, send) {
@@ -23,16 +20,16 @@ function view (opts) {
       return html`
         <section class="fl w-100 w-50-m w-33-l">
           <div class="ma2 ma3-l bg-white">
-            ${content}
+            ${content()}
           </div>
         </section>
       `
     })
 
     return html`
-      <body class="bg-dark-gray">
+      <body class="bg-dark-gray fixed w-100">
         ${header(state.location.pathname)}
-        <main class="cf center mw9 pa2">
+        <main class="cf center mw9 w-100 pa2 dib overflow-y-auto relative">
           ${cards}
         </main>
       </body>

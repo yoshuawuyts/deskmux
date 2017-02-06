@@ -1,11 +1,4 @@
 var html = require('choo/html')
-var css = require('sheetify')
-
-var prefix = css`
-  :host {
-    text-spacing: 5;
-  }
-`
 
 module.exports = view
 
@@ -17,7 +10,7 @@ function view (opts) {
       <body class="bg-dark-gray code">
         ${header(state.location.pathname)}
         <main class="flex flex-column justify-center vh-75 pa5">
-          <h1 class="pt5 mt0 ttu f-headline white sans-serif ${prefix}">
+          <h1 class="pt5 mt0 ttu f-headline white sans-serif">
             Welcome to deskmux
           </h1>
           <a href="/" onclick=${onclick}
