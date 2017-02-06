@@ -17,12 +17,19 @@
     "choo-persist": "^2.0.1",
     "electron": "^1.4.15",
     "electron-default-menu": "^1.0.0",
+    "end-of-stream": "^1.1.0",
+    "hypercore": "^4.19.3",
+    "hyperdiscovery": "^1.1.0",
+    "level": "^1.5.0",
+    "media-recorder-stream": "^2.1.1",
     "merry": "^4.2.0",
     "nanocomponent": "^1.1.0",
     "nanomorph": "^2.1.3",
+    "random-access-file": "^1.4.0",
     "sheetify": "^6.0.1",
     "tachyons": "^4.6.2",
-    "vhs": "^0.2.0"
+    "vhs": "^0.2.0",
+    "webm-cluster-stream": "^1.0.0"
   },
   "devDependencies": {
     "dependency-check": "^2.8.0",

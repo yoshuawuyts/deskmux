@@ -1,5 +1,12 @@
+var desktopCapturer = require('electron').desktopCapturer
+var hyperdiscovery = require('hyperdiscovery')
+var recorder = require('media-recorder-stream')
+var cluster = require('webm-cluster-stream')
 var component = require('nanocomponent')
+var raf = require('random-access-file')
+var eos = require('end-of-stream')
 var html = require('choo/html')
+var fs = require('fs')
 
 module.exports = element
 
@@ -17,7 +24,7 @@ function element () {
 
   function render () {
     return html`
-      <div class="bg-washed-blue green pa3 ba b--washed-green bw3">
+      <div class="bg-washed-blue green pa3">
         <div class="cf">
           <h1 class="fl ttu f4 code b mt0 w-50">
             Screencast

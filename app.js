@@ -1,3 +1,4 @@
+console.log(__dirname, __filename)
 var persist = require('choo-persist')
 var mount = require('choo/mount')
 var log = require('choo-log')

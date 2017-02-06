@@ -9,6 +9,36 @@ var shell = electron.shell
 var Menu = electron.Menu
 var app = electron.app
 
+const browserifyOpts = {
+  insertGlobals: true,
+  ignoreMissing: true,
+  builtins: false,
+  browserField: false,
+  insertGlobalVars: {
+    '__dirname': function (file, basedir) {
+      var dirname = JSON.stringify(path.dirname(path.relative(basedir, file)))
+      return '__dirname + "/" + ' + dirname
+    },
+    '__filename': function (file, basedir) {
+      var filename = JSON.stringify(path.relative(basedir, file))
+      return '__dirname + "/" + ' + filename
+    },
+    'process': undefined,
+    'global': undefined,
+    'Buffer': undefined,
+    'Buffer.isBuffer': undefined
+  },
+  postFilter: function (id, file, pkg) {
+    if (!file) return false
+    file = path.relative(__dirname, file)
+    if (file.indexOf('node_modules') !== -1 &&
+      file.indexOf('sheetify') === -1) {
+      return false
+    }
+    return true
+  }
+}
+
 var windowStyles = {
   titleBarStyle: 'hidden-inset',
   minWidth: 640,
@@ -29,7 +59,7 @@ app.on('ready', function () {
 function renderDevelopment () {
   var clientPath = path.join(__dirname, 'app.js')
   var indexPath = 'http://localhost:' + env.PORT
-  var assets = bankai(clientPath)
+  var assets = bankai(clientPath, { js: browserifyOpts })
   var server = merry()
 
   server.router([

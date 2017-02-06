@@ -29,7 +29,7 @@ function view (opts) {
     return html`
       <body class="bg-dark-gray fixed w-100">
         ${header(state.location.pathname)}
-        <main class="cf center mw9 w-100 pa2 dib overflow-y-auto relative">
+        <main class="cf center mw9 w-100 pa2 dib overflow-y-auto relative vhs-bottom">
           ${cards}
         </main>
       </body>
