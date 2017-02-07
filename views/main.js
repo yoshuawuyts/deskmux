@@ -12,7 +12,7 @@ function view (opts) {
 
   return function (state, prev, send) {
     if (state.preferences.welcome) {
-      send('location:set', '/welcome')
+      send('location:set', '#welcome')
       return html`<body class="bg-dark-gray"></body>`
     }
 
@@ -28,7 +28,7 @@ function view (opts) {
 
     return html`
       <body class="bg-dark-gray fixed w-100">
-        ${header(state.location.pathname)}
+        ${header(state.location.hash)}
         <main class="cf center mw9 w-100 pa2 dib overflow-y-auto relative vhs-bottom">
           ${cards}
         </main>

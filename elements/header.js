@@ -19,9 +19,9 @@ function element (opts) {
   })
 
   function render (pathname) {
-    var title = (pathname === '/')
+    var title = (pathname === '')
       ? 'deskmux | home'                             // replace '/' with words
-      : (pathname === '/welcome')
+      : (pathname === '#welcome')
         ? ''                                         // no title on welcome
         : 'deskmux | ' + pathname.replace(/^\//, '') // remove leading slash
 

@@ -8,7 +8,7 @@ function view (opts) {
   return function (state, prev, send) {
     return html`
       <body class="bg-dark-gray code">
-        ${header(state.location.pathname)}
+        ${header(state.location.hash)}
         <main class="flex flex-column justify-center vh-75 pa5">
           <h1 class="pt5 mt0 ttu f-headline white sans-serif vhs-flicker">
             Welcome to deskmux

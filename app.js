@@ -38,7 +38,7 @@ persist(function (persist) {
 
   app.router([
     [ '/', require('./views/main')(opts) ],
-    [ '/welcome', require('./views/welcome')(opts) ]
+    [ '#welcome', require('./views/welcome')(opts) ]
   ])
 
   mount('body', app.start())

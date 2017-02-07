@@ -14,7 +14,6 @@ const browserifyOpts = {
   insertGlobals: true,
   ignoreMissing: true,
   builtins: false,
-  browserField: false,
   insertGlobalVars: {
     '__dirname': function (file, basedir) {
       var relativePath = path.relative(basedir, file)
@@ -62,8 +61,8 @@ app.on('ready', function () {
 function renderDevelopment () {
   var clientPath = path.join(__dirname, 'app.js')
   var indexPath = url.format({
-    protocol: 'file',
     pathname: path.resolve(__dirname, 'index.html'),
+    protocol: 'file',
     slashes: true
   })
   var assets = bankai(clientPath, { js: browserifyOpts, html: false })
