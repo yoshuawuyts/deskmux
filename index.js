@@ -2,6 +2,7 @@ var defaultMenu = require('electron-default-menu')
 var electron = require('electron')
 var bankai = require('bankai')
 var merry = require('merry')
+var url = require('url')
 var path = require('path')
 
 var BrowserWindow = electron.BrowserWindow
@@ -16,12 +17,14 @@ const browserifyOpts = {
   browserField: false,
   insertGlobalVars: {
     '__dirname': function (file, basedir) {
-      var dirname = JSON.stringify(path.dirname(path.relative(basedir, file)))
-      return '__dirname + "/" + ' + dirname
+      var relativePath = path.relative(basedir, file)
+      var dirPath = path.dirname(relativePath)
+      var dirname = '"' + dirPath + '"'
+      return "require('path').join(__dirname, " + dirname + ')'
     },
     '__filename': function (file, basedir) {
-      var filename = JSON.stringify(path.relative(basedir, file))
-      return '__dirname + "/" + ' + filename
+      var filename = '"' + path.relative(basedir, file) + '"'
+      return "require('path').join(__dirname, " + filename + ')'
     },
     'process': undefined,
     'global': undefined,
@@ -58,13 +61,15 @@ app.on('ready', function () {
 
 function renderDevelopment () {
   var clientPath = path.join(__dirname, 'app.js')
-  var indexPath = 'http://localhost:' + env.PORT
-  var assets = bankai(clientPath, { js: browserifyOpts })
+  var indexPath = url.format({
+    protocol: 'file',
+    pathname: path.resolve(__dirname, 'index.html'),
+    slashes: true
+  })
+  var assets = bankai(clientPath, { js: browserifyOpts, html: false })
   var server = merry()
 
   server.router([
-    [ '/', _merryAssets(assets.html.bind(assets)) ],
-    [ '/welcome', _merryAssets(assets.html.bind(assets)) ],
     [ '/bundle.js', _merryAssets(assets.js.bind(assets)) ],
     [ '/bundle.css', _merryAssets(assets.css.bind(assets)) ]
   ])
