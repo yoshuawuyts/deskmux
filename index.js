@@ -48,6 +48,12 @@ var windowStyles = {
   width: 800
 }
 
+var indexPath = url.format({
+  pathname: path.resolve(__dirname, 'index.html'),
+  protocol: 'file',
+  slashes: true
+})
+
 var env = merry.env({
   NODE_ENV: 'production',
   PORT: 8080
@@ -60,11 +66,6 @@ app.on('ready', function () {
 
 function renderDevelopment () {
   var clientPath = path.join(__dirname, 'app.js')
-  var indexPath = url.format({
-    pathname: path.resolve(__dirname, 'index.html'),
-    protocol: 'file',
-    slashes: true
-  })
   var assets = bankai(clientPath, { js: browserifyOpts, html: false })
   var server = merry()
 
@@ -85,7 +86,6 @@ function renderDevelopment () {
 }
 
 function renderProduction () {
-  var indexPath = path.join(__dirname, 'dist/index.html')
   var win = new BrowserWindow(windowStyles)
   win.loadURL(indexPath)
   win.webContents.on('did-finish-load', function () {
