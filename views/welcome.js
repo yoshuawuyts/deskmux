@@ -15,7 +15,7 @@ function view (opts) {
           </h1>
           <a href="/" onclick=${onclick}
             class="bn f3 link white self-end ttu underline o-0 vhs-flicker vhs-delay-4">
-            Continue ❯
+            Continue
           </a>
         </main>
       </body>

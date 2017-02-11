@@ -33,7 +33,7 @@ function element () {
             New Recording
           </button>
         </div>
-        <div class="h4 w-100 bg-washed-green"></div>
+        <video autoplay controls>
       </div>
     `
   }
